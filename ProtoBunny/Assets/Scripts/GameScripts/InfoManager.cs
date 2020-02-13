@@ -41,10 +41,14 @@ public class InfoManager : MonoBehaviour
         day = 0;
         corruption = 0;
         activity = 0;
+        //Go to Menu
+    }
+
+    public void ResetActivities()
+    {
         firstActivity = BunActions.Empty;
         secActivity = BunActions.Empty;
         thirdActivity = BunActions.Empty;
-        //Go to Menu
     }
     #endregion
 
@@ -66,7 +70,7 @@ public class InfoManager : MonoBehaviour
         {
             Debug.Log("Game Ending.");
             //Ending
-            ResetGame();
+            GetEnding();
         }
     }
 
@@ -95,6 +99,25 @@ public class InfoManager : MonoBehaviour
             activity = 0;
             Debug.Log("All activities completed.");
             NextDay();
+        }
+    }
+
+    public void GetEnding()
+    {
+        if (corruption <= 10)
+        {
+            //Purged Ending
+        }
+        else
+        {
+            if (corruption <= 70)
+            {
+                //Sickness Ending
+            }
+            else
+            {
+                //Murder Ending
+            }
         }
     }
     #endregion
