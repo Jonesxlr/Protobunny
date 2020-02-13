@@ -123,4 +123,5 @@ public class InfoManager : MonoBehaviour
     #endregion
 
     // Made this edit at home.
+    // made this one in class.
 }
