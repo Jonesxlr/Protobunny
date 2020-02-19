@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 1510721674}
   - component: {fileID: 1510721673}
   - component: {fileID: 1510721677}
+  - component: {fileID: 1510721678}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -577,6 +578,18 @@ MonoBehaviour:
   backButton: {fileID: 0}
   yesButton: {fileID: 116242475}
   noButton: {fileID: 1554525405}
+--- !u!114 &1510721678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510721672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a7f39836217c184397551ce89422e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1554525403
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

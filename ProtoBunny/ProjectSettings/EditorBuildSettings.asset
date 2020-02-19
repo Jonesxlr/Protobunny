@@ -18,6 +18,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: 37f7d474ff86bf945b78c84f4d4988cb
   - enabled: 1
-    path: Assets/Scenes/ConfirmMenu.unity
+    path: Assets/Scenes/MenuPopups/ConfirmMenu.unity
     guid: e0ebfbaf640576447b67a00cc08f8027
+  - enabled: 1
+    path: Assets/Scenes/MenuPopups/Alert.unity
+    guid: 383b521f30aae0c4bb5a80a988c3b22d
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 28bf599a71f30334eb36a00e2ad1fb48
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Washing.unity
+    guid: fbecbd658d6c2344080a3982e65dcec4
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Dance.unity
+    guid: 39d08620c2924f24fb63ffb2c047908c
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Placeholder.unity
+    guid: 11e5f45b1a58aca408399ba8eae74312
+  - enabled: 1
+    path: Assets/Scenes/Minigames/Feeding.unity
+    guid: c7cbaf08b4866c349a235612ea6f4fee
   m_configObjects: {}

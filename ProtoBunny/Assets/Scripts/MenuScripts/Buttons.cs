@@ -44,10 +44,11 @@ public class Buttons : MonoBehaviour
     void BackClicked()
     {
         Debug.Log("Back button was clicked!");
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Credits"))
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Credits")||SceneManager.GetActiveScene()==SceneManager.GetSceneByName("Ending"))
         {
-            Debug.Log("From Credits!");
+            Debug.Log("From Credits / Ending!");
             SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+            GetComponent<GameInfos>().ResetGame();
         }
         else
         {
@@ -61,6 +62,7 @@ public class Buttons : MonoBehaviour
     #region Confirmation
     void YesClicked()
     {
+        GetComponent<GameInfos>().ResetGame();
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
     }
 
