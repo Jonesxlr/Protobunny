@@ -8,7 +8,7 @@ public class DragMe : MonoBehaviour
     private bool dragging = false, isDocked = false;
     private Dock dock;
     public BunActions myAction;
-    
+
     private void Start()
     {
         OriginX = transform.localPosition.x;
@@ -49,9 +49,8 @@ public class DragMe : MonoBehaviour
         }
         else
         {
-            transform.localPosition = new Vector2(OriginX, OriginY);
+            transform.localPosition = new Vector3(OriginX, OriginY, transform.localPosition.z);
         }
-        //Add an if statement to check if it's in an end position, if not, reset its original position
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

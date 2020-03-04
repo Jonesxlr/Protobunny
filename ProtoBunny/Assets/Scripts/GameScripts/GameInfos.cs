@@ -14,6 +14,7 @@ public class GameInfos : MonoBehaviour
     private static BunActions firstActivity = BunActions.Empty;
     private static BunActions secActivity = BunActions.Empty;
     private static BunActions thirdActivity = BunActions.Empty;
+    private static int clean = 10, fed = 10, happy = 10;
 
     #region Set Things
     public void SetActivity(int action,BunActions doing)
@@ -41,6 +42,9 @@ public class GameInfos : MonoBehaviour
         day = 1;
         corruption = 0;
         activity = 0;
+        clean = 10;
+        fed = 10;
+        happy = 10;
         ResetActivities();
     }
 
@@ -60,7 +64,7 @@ public class GameInfos : MonoBehaviour
 
     public void CleanseCorruption(int chance)
     {
-        corruption /= (8 - chance);
+        corruption = Mathf.Max(0,corruption - (7-chance) * 5);
         Debug.Log("Current Corruption: " + corruption);
     }
 
@@ -112,21 +116,38 @@ public class GameInfos : MonoBehaviour
     {
         switch (Activity)
         {
-            case BunActions.Wash:
+            case BunActions.Wash: // +*clean, -happy
+                clean = 10;
+                happy = Mathf.Max(happy - 3, 0);
                 SceneManager.LoadSceneAsync("Washing", LoadSceneMode.Single);
                 break;
-            case BunActions.Dance:
+            case BunActions.Dance: // ++happy, -fed
+                happy = Mathf.Min(happy + 2, 10);
+                fed = Mathf.Max(fed - 1, 0);
                 SceneManager.LoadSceneAsync("Dance", LoadSceneMode.Single);
                 break;
-            case BunActions.Explore:
+            case BunActions.Explore: // ++happy, -clean
                 // Load Explore minigame - click a direction, bunny goes in that direction. reach goal, avoid bads.
-            case BunActions.Ball:
+                happy = Mathf.Min(happy + 2, 10);
+                clean = Mathf.Max(clean - 1, 0);
+                SceneManager.LoadSceneAsync("Placeholder", LoadSceneMode.Single);
+                break;
+            case BunActions.Ball: // +++happy, -fed, -clean
                 // Load Ball minigame - BBTan, shoot ball to bunny.
-            case BunActions.Feed:
+                happy = Mathf.Min(happy + 3, 10);
+                fed = Mathf.Max(fed - 1, 0);
+                clean = Mathf.Max(clean - 1, 0);
+                SceneManager.LoadSceneAsync("Placeholder", LoadSceneMode.Single);
+                break;
+            case BunActions.Feed: // +*fed
                 // Load Feed minigame scene - Memory Match, 5 cards, one card matches bun's request, find the match.
+                fed = 10;
                 SceneManager.LoadSceneAsync("Placeholder", LoadSceneMode.Single);
                 break;
             case BunActions.Empty:
+                happy = Mathf.Max(happy - 2, 0);
+                clean = Mathf.Max(clean - 1, 0);
+                fed = Mathf.Max(fed - 1, 0);
                 AddCorruption(7);
                 NextActivity();
                 break;
@@ -169,6 +190,21 @@ public class GameInfos : MonoBehaviour
     public int GetActivity()
     {
         return activity;
+    }
+
+    public int GetFed()
+    {
+        return fed;
+    }
+
+    public int GetClean()
+    {
+        return clean;
+    }
+
+    public int GetHappy()
+    {
+        return happy;
     }
 
     public BunActions GetActivity(int act)

@@ -264,8 +264,8 @@ MonoBehaviour:
 
 
 
-    *note, not final build, this was made without using most art and audio to emphasize
-    the game mechanics.'
+    *Note, build is not final. Made with some assets still missing. Purpose of this
+    build is to emphasize start of narrative. Endings exist.'
 --- !u!222 &778084454
 CanvasRenderer:
   m_ObjectHideFlags: 0

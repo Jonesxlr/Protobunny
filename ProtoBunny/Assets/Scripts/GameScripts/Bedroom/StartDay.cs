@@ -7,11 +7,13 @@ public class StartDay : MonoBehaviour
 {
     public GameObject actDock, actDock2, actDock3;
     GameInfos infos;
+    public Text stats;
 
     private void Start()
     {
         infos = GetComponent<GameInfos>();
         gameObject.GetComponent<Button>().onClick.AddListener(StartingDay);
+        stats.text = "Clean: " + infos.GetClean() + "\nTummy: " + infos.GetFed() + "\nHappy: " + infos.GetHappy();
     }
 
     void StartingDay()
