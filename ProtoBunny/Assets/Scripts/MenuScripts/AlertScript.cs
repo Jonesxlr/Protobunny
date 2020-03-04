@@ -50,6 +50,8 @@ public class AlertScript : MonoBehaviour
 
         if (countdown <= 0.0f)
         {
+            if (GetComponent<GameInfos>().GetActivity() == 0)
+                SceneManager.LoadSceneAsync("Chatterbox", LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync("Alert");
         }
     }
