@@ -18,6 +18,7 @@ public class BunMove : MonoBehaviour
         infos = GetComponent<GameInfos>();
         max = 10 + (2 * infos.GetDay());
         cd /= infos.GetDay();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -64,6 +65,7 @@ public class BunMove : MonoBehaviour
             if (progress >= max)
             {
                 Debug.Log("End Wash.");
+                Cursor.visible = true;
                 infos.NextActivity();
             }
         }
