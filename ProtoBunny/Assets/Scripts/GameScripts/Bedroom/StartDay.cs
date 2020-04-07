@@ -18,13 +18,13 @@ public class StartDay : MonoBehaviour
 
     void StartingDay()
     {
-       // if (actDock.GetComponent<Dock>().action!=BunActions.Empty && actDock2.GetComponent<Dock>().action != BunActions.Empty && actDock3.GetComponent<Dock>().action != BunActions.Empty)
-      //  {
+       if (actDock.GetComponent<Dock>().action!=BunActions.Empty && actDock2.GetComponent<Dock>().action != BunActions.Empty && actDock3.GetComponent<Dock>().action != BunActions.Empty)
+       {
             infos.SetActivity(1, actDock.GetComponent<Dock>().action);
             infos.SetActivity(2, actDock2.GetComponent<Dock>().action);
             infos.SetActivity(3, actDock3.GetComponent<Dock>().action);
 
             infos.NextActivity();
-      //  }
+       }
     }
 }

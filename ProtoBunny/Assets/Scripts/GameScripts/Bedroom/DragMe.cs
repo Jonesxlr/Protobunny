@@ -37,6 +37,13 @@ public class DragMe : MonoBehaviour
             StartPosY = mousePos.y - transform.localPosition.y;
 
             dragging = true;
+
+            if (isDocked)
+            {
+                Debug.Log("Bye");
+                dock.action = BunActions.Empty;
+                isDocked = false;
+            }
         }
     }
 
@@ -66,16 +73,6 @@ public class DragMe : MonoBehaviour
                 isDocked = true;
                 transform.localPosition = collision.gameObject.transform.localPosition;
             }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Debug.Log("Bye");
-        if (collision.gameObject.tag == "Dock")
-        {
-            dock.action = BunActions.Empty;
-            isDocked = false;
         }
     }
 }
