@@ -264,8 +264,8 @@ MonoBehaviour:
 
 
 
-    *Note, build is not final. Made with some assets still missing. Purpose of this
-    build is to emphasize start of narrative. Endings exist.'
+    *Note, not final. Several assets are missing, as well as some features. We apologize
+    if your experience with this game is not as fulfilling as it should be.'
 --- !u!222 &778084454
 CanvasRenderer:
   m_ObjectHideFlags: 0

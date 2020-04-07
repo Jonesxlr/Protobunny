@@ -313,13 +313,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'This is the placeholder scene.
+  m_Text: 'Placeholder Scene.
 
-    This is here because the minigame you''ve chosen doesn''t exist yet.
+    Activity that is meant to be here wasn''t built
 
-    Please try again, during another playtest.
+    in a functional & proper matter.
 
-    Thank you :)'
+    Sorry about that.'
 --- !u!222 &1487512347
 CanvasRenderer:
   m_ObjectHideFlags: 0

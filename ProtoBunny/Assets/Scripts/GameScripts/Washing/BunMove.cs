@@ -7,16 +7,15 @@ public class BunMove : MonoBehaviour
 {
     public float yLevel = -3.5f;
     private GameInfos infos;
-    private int progress = 0, max = 15;
+    private int progress = 0, total = 0;
     private bool ready = false,waters=false;
     public GameObject Water, Mud;
     public Text StartText;
-    private float cd = 0.6f;
+    private float cd = 0.6f, tTimer=25f;
 
     private void Start()
     {
         infos = GetComponent<GameInfos>();
-        max = 10 + (2 * infos.GetDay());
         cd /= infos.GetDay();
         Cursor.visible = false;
     }
@@ -53,6 +52,15 @@ public class BunMove : MonoBehaviour
                 }
                 cd = 0.6f/infos.GetDay();
             }
+            //reduce timer
+            tTimer -= Time.deltaTime;
+            if (tTimer <= 0f)
+            {
+                Debug.Log("End Wash.");
+                Cursor.visible = true;
+                infos.NextActivity();
+                ready = false;
+            }
         }
     }
 
@@ -62,19 +70,16 @@ public class BunMove : MonoBehaviour
         if (other.name == "Water")
         {
             progress++;
-            if (progress >= max)
-            {
-                Debug.Log("End Wash.");
-                Cursor.visible = true;
-                infos.NextActivity();
-            }
+            total++;
         }
         if (other.name == "Mud")
         {
             infos.AddCorruption(2);
-            progress--;
+            total++;
         }
-        StartText.text = progress + "/" + max;
+
+        StartText.text = progress + " - " + (int)((progress * 1f) / (total * 1f) * 100) + "%";
+
         Destroy(other);
     }
 }

@@ -188,13 +188,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Dancing with bunny!
+  m_Text: 'Dance with bunny!
 
-    Click on the greens before they vanish!
+    Click on greens to dance!
 
-    Don''t click the reds!
-
-    Click anywhere to start!'
+    Don''t click on reds!'
 --- !u!222 &213263056
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class Dancing : MonoBehaviour
 {
     public int progress = 0;
-    private int max = 10;
+    private int total = 0;
     private bool ready = false,dancer = true;
     private GameInfos infos;
-    private float cd,vanish;
+    private float cd,vanish,tTimer=25f;
     public GameObject dances, bad;
     public Text startText;
 
@@ -17,7 +17,6 @@ public class Dancing : MonoBehaviour
     void Start()
     {
         infos = GetComponent<GameInfos>();
-        max = 10 + (2 * infos.GetDay());
         cd = 1.0f / Mathf.Max(1, (infos.GetDay() / 2));
         vanish = 4.0f / Mathf.Max(1,(infos.GetDay()/2));
     }
@@ -33,6 +32,7 @@ public class Dancing : MonoBehaviour
         if (ready)
         {
             cd -= Time.deltaTime;
+            tTimer -= Time.deltaTime;
 
             if (cd <= 0f)
             {
@@ -53,23 +53,25 @@ public class Dancing : MonoBehaviour
                 newDancer.GetComponent<DelayDeath>().deathdelay = vanish;
                 cd = 1.0f / infos.GetDay();
             }
+            if (tTimer <= 0f)
+            {
+                Debug.Log("End Dance");
+                infos.NextActivity();
+                ready = false;
+            }
         }
     }
     public void ClickedBad()
     {
-        progress--;
-        startText.text = progress + "/" + max;
+        total++;
+        startText.text = progress + " - " + (int)((progress * 1f) / (total * 1f) * 100) + "%";
         infos.AddCorruption(2);
     }
 
     public void ClickedGood()
     {
         progress++;
-        startText.text = progress + "/" + max;
-        if (progress >= max)
-        {
-            Debug.Log("End Dance.");
-            infos.NextActivity();
-        }
+        total++;
+        startText.text = progress + " - " + (int)((progress * 1f) / (total * 1f) * 100) + "%";
     }
 }

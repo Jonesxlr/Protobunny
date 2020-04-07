@@ -1397,18 +1397,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Drag and Drop the colors onto their slot to decide activities.
-
-
-    Blue - Wash
-
-    Red - Explore
-
-    Orange - Feed
-
-    Purple - Dance
-
-    Teal - Ball'
+  m_Text: Drag and Drop each tile to the dock in whichever order you want.
 --- !u!222 &1228009038
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1554,7 +1543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233765252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 2.5, z: -1}
+  m_LocalPosition: {x: -1, y: 2.5, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 1558968532}
@@ -2210,7 +2199,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1808356240
 Rigidbody2D:
   serializedVersion: 4
@@ -2353,7 +2342,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!50 &1814363534
 Rigidbody2D:
   serializedVersion: 4
